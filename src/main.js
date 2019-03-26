@@ -28,7 +28,12 @@ import {
   TableColumn,
   TabPane,
   Loading,
-  Progress
+  Progress,
+  Breadcrumb,
+  BreadcrumbItem,
+  Row,
+  Col,
+  Input
 } from 'element-ui'
 
 import waterfall from 'vue-waterfall2'
@@ -49,6 +54,11 @@ Vue.use(Button)
   .use(TabPane)
   .use(Loading)
   .use(Progress)
+  .use(Breadcrumb)
+  .use(BreadcrumbItem)
+  .use(Row)
+  .use(Col)
+  .use(Input);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

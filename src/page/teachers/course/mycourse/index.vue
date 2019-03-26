@@ -11,28 +11,28 @@
           </div>
         </li>
         <li>
-          <h4 class="icon-test">课件任务名称</h4>
+          <h4 class="icon-test">测试任务名称</h4>
           <div>
             <p>截止时间：2019.03.11</p>
             <p>发起人：张丹丹老师</p>
           </div>
         </li>
         <li>
-          <h4 class="icon-questionnaire">课件任务名称</h4>
+          <h4 class="icon-questionnaire">问卷任务名称</h4>
           <div>
             <p>截止时间：2019.03.11</p>
             <p>发起人：张丹丹老师</p>
           </div>
         </li>
         <li>
-          <h4 class="icon-works">课件任务名称</h4>
+          <h4 class="icon-works">作品上传</h4>
           <div>
             <p>截止时间：2019.03.11</p>
             <p>发起人：张丹丹老师</p>
           </div>
         </li>
         <li>
-          <h4 class="icon-clock">课件任务名称</h4>
+          <h4 class="icon-clock">优势打卡任务名称</h4>
           <div>
             <p>截止时间：2019.03.11</p>
             <p>发起人：张丹丹老师</p>
@@ -54,36 +54,42 @@
               <h4>课程名称课程名称</h4>
               <p>开始时间：2019.01.01</p>
               <p>结束时间：2019.01.01</p>
+              <p>所属班级：104班</p>
             </router-link>
             <router-link to="mycourse/view" tag="li">
               <img src="../../../../assets/images/img2.png" alt="">
               <h4>课程名称课程名称</h4>
               <p>开始时间：2019.01.01</p>
               <p>结束时间：2019.01.01</p>
+              <p>所属班级：104班</p>
             </router-link>
             <router-link to="mycourse/view" tag="li">
               <img src="../../../../assets/images/img3.png" alt="">
               <h4>课程名称课程名称</h4>
               <p>开始时间：2019.01.01</p>
               <p>结束时间：2019.01.01</p>
+              <p>所属班级：104班</p>
             </router-link>
             <router-link to="mycourse/view" tag="li">
               <img src="../../../../assets/images/img4.png" alt="">
               <h4>课程名称课程名称</h4>
               <p>开始时间：2019.01.01</p>
               <p>结束时间：2019.01.01</p>
+              <p>所属班级：104班</p>
             </router-link>
             <router-link to="mycourse/view" tag="li">
               <img src="../../../../assets/images/img5.png" alt="">
               <h4>课程名称课程名称</h4>
               <p>开始时间：2019.01.01</p>
               <p>结束时间：2019.01.01</p>
+              <p>所属班级：104班</p>
             </router-link>
             <router-link to="mycourse/view" tag="li">
               <img src="../../../../assets/images/img1.png" alt="">
               <h4>课程名称课程名称</h4>
               <p>开始时间：2019.01.01</p>
               <p>结束时间：2019.01.01</p>
+              <p>所属班级：104班</p>
             </router-link>
             <li class="bai"></li>
             <li class="bai"></li>
@@ -219,8 +225,11 @@ export default {
                 left: 0;
                 top: 3px;
               }
-              &:last-child:after{
+              &:nth-child(4):after{
                 background-color: #FA6464;
+              }
+              &:last-child:after{
+                background-color: #F79727;
               }
             }
             &.bai{

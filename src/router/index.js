@@ -39,6 +39,12 @@ let router = new Router({
               }
             },
             {
+              path: 'mycourse/view',
+              components: {
+                default: resolve => require(['@/page/student/course/mycourse/mycourseview.vue'], resolve)
+              }
+            },
+            {
               path: 'mytest',
               components: {
                 default: resolve => require(['@/page/student/course/mytest/mytest.vue'], resolve)
@@ -61,6 +67,53 @@ let router = new Router({
       ],
       meta: {
         title: '优想教育|学生端'
+      }
+    },
+    // teaccher
+    {
+      path: '/teachers',
+      name: 'teachers',
+      components: {
+        default: resolve => require(['@/page/teachers/index.vue'], resolve)
+      },
+      redirect: '/teachers/course/mycourse',
+      children: [
+        {
+          path: 'course',
+          redirect: '/teachers/course/mycourse',
+          components: {
+            default: resolve => require(['@/page/teachers/course/course.vue'], resolve)
+          },
+          children: [
+            {
+              path: 'mycourse',
+              components: {
+                default: resolve => require(['@/page/teachers/course/mycourse/index.vue'], resolve)
+              }
+            },
+            {
+              path: 'mycourse/view',
+              components: {
+                default: resolve => require(['@/page/teachers/course/mycourse/view.vue'], resolve)
+              }
+            },
+            {
+              path: 'trends',
+              components: {
+                default: resolve => require(['@/page/teachers/course/trends/index.vue'], resolve)
+              }
+            },
+            {
+              path: 'works',
+              components: {
+                default: resolve => require(['@/page/teachers/course/works/index.vue'], resolve)
+              }
+            }
+          ]
+        }
+      ],
+      meta: {
+        title: '优想教育教师端'
       }
     },
     // dome
