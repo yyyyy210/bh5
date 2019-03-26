@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <BHeader></BHeader> -->
+    <BHeader></BHeader>
     <section class="main">
       <aside>
         <img src="../../assets/images/head.png" alt="">
