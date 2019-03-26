@@ -1,0 +1,348 @@
+<template>
+  <div class="mycourse" v-loading="loading">
+    <hgroup :class="{'active':isHidden}">
+      <div><span>我的任务</span><span @click="changeIsHidden"><img src="../../../../assets/images/icon/icon_task_close.png" alt=""></span></div>
+      <ul>
+        <li>
+          <h4 class="icon-course">课件任务名称</h4>
+          <div>
+            <p>截止时间：2019.03.11</p>
+            <p>发起人：张丹丹老师</p>
+          </div>
+        </li>
+        <li>
+          <h4 class="icon-test">课件任务名称</h4>
+          <div>
+            <p>截止时间：2019.03.11</p>
+            <p>发起人：张丹丹老师</p>
+          </div>
+        </li>
+        <li>
+          <h4 class="icon-questionnaire">课件任务名称</h4>
+          <div>
+            <p>截止时间：2019.03.11</p>
+            <p>发起人：张丹丹老师</p>
+          </div>
+        </li>
+        <li>
+          <h4 class="icon-works">课件任务名称</h4>
+          <div>
+            <p>截止时间：2019.03.11</p>
+            <p>发起人：张丹丹老师</p>
+          </div>
+        </li>
+        <li>
+          <h4 class="icon-clock">课件任务名称</h4>
+          <div>
+            <p>截止时间：2019.03.11</p>
+            <p>发起人：张丹丹老师</p>
+          </div>
+        </li>
+      </ul>
+    </hgroup>
+    <section :class="{'active':isHidden}">
+      <div>
+        <div>
+          <h2>我的课程</h2>
+          <span class="active">当前课程</span>
+          <span>历史课程</span>
+        </div>
+        <section>
+          <ul>
+            <li>
+              <img src="../../../../assets/images/img1.png" alt="">
+              <h4>课程名称课程名称</h4>
+              <p>开始时间：2019.01.01</p>
+              <p>结束时间：2019.01.01</p>
+            </li>
+            <li>
+              <img src="../../../../assets/images/img2.png" alt="">
+              <h4>课程名称课程名称</h4>
+              <p>开始时间：2019.01.01</p>
+              <p>结束时间：2019.01.01</p>
+            </li>
+            <li>
+              <img src="../../../../assets/images/img3.png" alt="">
+              <h4>课程名称课程名称</h4>
+              <p>开始时间：2019.01.01</p>
+              <p>结束时间：2019.01.01</p>
+            </li>
+            <li>
+              <img src="../../../../assets/images/img4.png" alt="">
+              <h4>课程名称课程名称</h4>
+              <p>开始时间：2019.01.01</p>
+              <p>结束时间：2019.01.01</p>
+            </li>
+            <li>
+              <img src="../../../../assets/images/img5.png" alt="">
+              <h4>课程名称课程名称</h4>
+              <p>开始时间：2019.01.01</p>
+              <p>结束时间：2019.01.01</p>
+            </li>
+            <li>
+              <img src="../../../../assets/images/img1.png" alt="">
+              <h4>课程名称课程名称</h4>
+              <p>开始时间：2019.01.01</p>
+              <p>结束时间：2019.01.01</p>
+            </li>
+            <li class="bai"></li>
+            <li class="bai"></li>
+            <li class="bai"></li>
+            <li class="bai"></li>
+          </ul>
+        </section>
+      </div>
+    </section>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Mycourse',
+  data () {
+    return {
+      loading: true,
+      isHidden: false
+    }
+  },
+  created () {
+    let _this = this
+    setTimeout(() => {
+      _this.loading = false
+    }, 1000)
+  },
+  methods: {
+    changeIsHidden () {
+      this.isHidden = !this.isHidden
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.mycourse {
+  width: 100%;
+  overflow: hidden;
+  &>section{
+    margin-top: 14px;
+    width: calc(100% - 222px);
+    height: 100%;
+    border:1px solid rgba(228,232,237,1);
+    transition: width .3s;
+    // padding-right: 222px;
+    &>div{
+      height: 100%;
+      padding: 0 20px;
+      border-radius:6px;
+      background-color: #fff;
+      &>div{
+        height: 70px;
+        line-height: 70px;
+        display: flex;
+        h2{
+          flex: 1;
+          display: block;
+          height: 20px;
+          text-indent: 40px;
+          position: relative;
+          font-size: 18px;
+          font-weight: 600;
+          &:after{
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 20px;
+            top: 25px;
+            left: 8px;
+            background-image: url('../../../../assets/images/icon/icon_mycourse.png');
+          }
+        }
+        span{
+          display: block;
+          width: 100px;
+          height: 32px;
+          line-height: 32px;
+          text-align: center;
+          border-radius: 16px;
+          margin-top: 19px;
+          color: #666;
+          cursor: pointer;
+          &:hover{
+            background-color: #fcf4eb;
+          }
+          &.active{
+            background-color: #F79727;
+            color: #fff;
+            &:hover{
+              background-color: #F79727;
+            }
+          }
+        }
+      }
+      &>section {
+        padding-bottom: 30px;
+        ul{
+          display: flex;
+          display: -webkit-flex;
+          justify-content: space-between;
+          flex-direction: row;
+          flex-wrap: wrap;
+          li{
+            width: 190px;
+            border-radius:4px;
+            overflow: hidden;
+            border:1px solid rgba(228,232,237,1);
+            margin-bottom: 20px;
+            padding-bottom: 3px;
+            h4{
+              margin: 16px 13px 15px;
+              font-size: 15px;
+              font-weight: 600;
+            }
+            p{
+              display: block;
+              height: 12px;
+              margin-left: 13px;
+              margin-bottom: 9px;
+              font-size: 12px;
+              line-height: 12px;
+              text-indent: 9px;
+              position: relative;
+              &:after {
+                content: '';
+                display: block;
+                width: 4px;
+                height: 4px;
+                background-color: #56BF79;
+                position: absolute;
+                left: 0;
+                top: 3px;
+              }
+              &:last-child:after{
+                background-color: #FA6464;
+              }
+            }
+            &.bai{
+              visibility: hidden;
+              height: 0;
+            }
+          }
+        }
+      }
+    }
+    &.active {
+      width: calc(100% - 14px);
+    }
+  }
+  hgroup{
+    width: 210px;
+    min-height: 700px;
+    padding-bottom: 50px;
+    float: right;
+    border-left:1px solid rgba(228,232,237,1);
+    transition: width .3s;
+    background-color: #fff;
+    &>div{
+      padding: 0 20px;
+      height: 70px;
+      line-height: 70px;
+      background-image: url('../../../../assets/images/task_bg.png');
+      display: flex;
+      font-size: 18px;
+      color: #fff;
+      font-weight: 600;
+      &>span:first-child{
+        flex: 1;
+      }
+      &>span:nth-child(2) {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        margin-top: 23px;
+        cursor: pointer;
+      }
+    }
+    &>ul>li{
+      padding: 15px 14px 0 16px;
+      h4{
+        height: 16px;
+        line-height: 16px;
+        font-weight: 600;
+        text-indent: 26px;
+        background-size: 16px 16px;
+        margin-bottom: 15px;
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        &.icon-course{
+          background-image: url('../../../../assets/images/icon/icon_course_name.png');
+        }
+        &.icon-test{
+          background-image: url('../../../../assets/images/icon/icon_course_content.png');
+        }
+        &.icon-questionnaire{
+          background-size: 14px 16px;
+          background-image: url('../../../../assets/images/icon/icon_course_look.png');
+        }
+        &.icon-works{
+          background-size: 16px 14px;
+          background-position: 1px 0;
+          background-image: url('../../../../assets/images/icon/icon_course_completed.png');
+        }
+        &.icon-clock{
+          background-image: url('../../../../assets/images/icon/icon_clock.png');
+        }
+      }
+      div{
+        background-color: #F2F5F7;
+        padding: 15px 12px 3px;
+        p{
+          display: block;
+          font-size: 12px;
+          line-height: 12px;
+          text-indent: 16px;
+          position: relative;
+          color: #888;
+          margin-bottom: 11px;
+          &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: #C2C8CC;
+            top: 3px;
+            left: 0;
+          }
+        }
+      }
+    }
+    &.active {
+      width: 44px;
+      height: 44px;
+      min-height: 44px;
+      padding-bottom: 0;
+      margin-top: 28px;
+      background-color: transparent;
+      border: none;
+      &>div{
+        width: 44px;
+        height: 44px;
+        padding: 10px;
+        text-align: center;
+        border-radius: 50% 0 0 50%;
+        span:nth-child(1){
+          display: none;
+        }
+        span:nth-child(2){
+          margin-top: 0;
+          transform: rotate(180deg);
+        }
+      }
+      ul{
+        display: none;
+      }
+    }
+  }
+}
+</style>
