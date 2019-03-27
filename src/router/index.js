@@ -45,6 +45,12 @@ let router = new Router({
               }
             },
             {
+              path: 'mycourse/material',
+              components: {
+                default: resolve => require(['@/page/student/course/mycourse/material.vue'], resolve)
+              }
+            },
+            {
               path: 'mytest',
               components: {
                 default: resolve => require(['@/page/student/course/mytest/mytest.vue'], resolve)
@@ -55,7 +61,7 @@ let router = new Router({
               components: {
                 default: resolve => require(['@/page/student/course/works/works.vue'], resolve)
               }
-            }
+            },            
           ]
         },
         {
