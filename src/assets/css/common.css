@@ -22,3 +22,21 @@
 .el-table .ascending .sort-caret.ascending{
   border-bottom-color: #F28C18;
 }
+
+/* team */
+.team .el-dialog__body {
+  padding: 20px 1px;
+}
+
+/* mytest */
+
+.mytest .el-table .tableRow:hover {
+  background:#fff;
+  border-collapse: collapse;
+  /* box-shadow:5px 5px 5px 5px rgba(247,151,39,1); */
+  box-shadow: 0 0 10px rgba(247,151,39,1);
+  border:1px solid #ccc;
+}
+.mytest .el-table .tableRow:hover td {
+  background-color: initial !important;
+}

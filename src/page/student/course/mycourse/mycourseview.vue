@@ -15,7 +15,10 @@
 							<el-col :span="18">
 								<div class="workdes">
 									<h3>外教1对11英语课程 口语轻松说</h3>
-									<p>外教英语培训班 , 外教英语培训班 , 每天45分钟 , 随时纠正 , 学英语上TutorABC , 随时随地对话全球外教 , 生活,职场，外教英语培训班 , 外教英语培训班 , 每天45分钟 , 随时纠正 , 学英语上TutorABC，外教英语培训班 , 外教英语培训班 , 每天45分 ...</p>
+									<p>
+										{{fitlerdes()}}
+										<var v-if="!desState" @click="()=>{this.desState = true}">查看详情</var>
+									</p>
 									<div>
 										<span>开始时间： 2019.01.01</span>
 										<span>结束时间： 2019.06.30</span>
@@ -27,17 +30,104 @@
 				</el-row>
 			</div>
 			<div class="workList">
-				<el-row :gutter="10" v-for="(item) in data" :key="item">
+				<el-row :gutter="10">
+					<el-col :span="12">
+						<div class="li nowork">
+							<h4>第1课时：课时名称课时名称课时名称课时名称</h4>
+							<div class="icon_no">
+								<div>
+									<i></i>
+									<span>已禁用控件</span>
+								</div>
+							</div>
+						</div>
+					</el-col>
 					<el-col :span="12">
 						<div class="li">
-							<h4>第1课时：课时名称课时名称课时名称课时名称</h4>
+							<h4>相关任务</h4>
+							<div class="tasks">
+								<ul>
+									<li>
+										<el-row>
+											<el-col :span="11">
+												<h5 class="li1">完成当前课时测试内容</h5>
+											</el-col>
+											<el-col :span="7">
+												<small>截止时间：2019.03.11</small>
+											</el-col>
+											<el-col :span="6">
+												<router-link to="/student/course/mycourse/material" tag="a" class="h">去完成 ></router-link>
+											</el-col>
+										</el-row>
+									</li>
+									<li>
+										<el-row>
+											<el-col :span="11">
+												<h5 class="li2">完成当前课时问卷调查</h5>
+											</el-col>
+											<el-col :span="7">
+												<small>截止时间：2019.03.11</small>
+											</el-col>
+											<el-col :span="6">
+												<router-link to="/student/course/mycourse/material" tag="a" class="h">去完成 ></router-link>
+											</el-col>
+										</el-row>
+									</li>
+									<li>
+										<el-row>
+											<el-col :span="11">
+												<h5 class="li3">完成作品上传</h5>
+											</el-col>
+											<el-col :span="7">
+												<small>截止时间：2019.03.11</small>
+											</el-col>
+											<el-col :span="6">
+												<span class="active">去完成</span>
+											</el-col>
+										</el-row>
+									</li>
+									<li>
+										<el-row>
+											<el-col :span="11">
+												<h5 class="li3">完成作品上传</h5>
+											</el-col>
+											<el-col :span="7">
+												<small>截止时间：2019.03.11</small>
+											</el-col>
+											<el-col :span="6">
+												<span class="active">去完成</span>
+											</el-col>
+										</el-row>
+									</li>
+									<li>
+										<el-row>
+											<el-col :span="11">
+												<h5 class="li3">完成作品上传</h5>
+											</el-col>
+											<el-col :span="7">
+												<small>截止时间：2019.03.11</small>
+											</el-col>
+											<el-col :span="6">
+												<span class="active">去完成</span>
+											</el-col>
+										</el-row>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</el-col>					
+				</el-row>
+				<el-row :gutter="10" v-for="(item, index) in data" :key="item">
+					<el-col :span="12">
+						<div class="li">
+							<h4>第{{index + 2}}课时：课时名称课时名称课时名称课时名称</h4>
 							<div class="workdes">
 								<span>课件名称课件名称课件名称课件名称01</span>
 								<var>查看课件 ></var>
 							</div>
 							<div class="myteam">
 								<span class="i">我的小组</span>
-								<span>查看 ></span>
+								<span @click="changeTeam">查看 ></span>
 							</div>
 						</div>
 					</el-col>
@@ -86,30 +176,37 @@
 										</el-row>
 									</li>
 								</ul>
+								<div class="tasksall">查看全部<i>》</i></div>
 							</div>
 						</div>
 					</el-col>
 				</el-row>
 			</div>
 		</div>
+
+		<team :state="teamShow" v-on:close="changeTeam" />
 	</div>
 </template>
 
 <script>
 import breadcrumb from '@/components/common/breadcrumb.vue'
+import team from './team.vue'
 import breadcrumb_address from 'assets/images/student/breadcrumb_address.png'
 import workimg from 'assets/images/student/workimg.png'
 
 export default {
 	name: "MyCourseView",
 	components: {
-		breadcrumb
+		breadcrumb,
+		team
 	},
 	data() {
 		return {
 			loading: true,
 			workimg,
-			data: [1,2,3,4,5,6,7]
+			teamShow: false,
+			data: [1,2,3,4,5,6,7],
+			desState: false
 		};
 	},
 	created() {
@@ -118,7 +215,15 @@ export default {
 			_this.loading = false;
 		}, 1000);
 	},
-	methods: {}
+	methods: {
+		changeTeam(){
+			this.teamShow = !this.teamShow;
+		},
+		fitlerdes(){
+			let text = '外教英语培训班 , 外教英语培训班 , 每天45分钟 , 随时纠正 , 学英语上TutorABC , 随时随地对话全球外教 , 生活,职场，外教英语培训班 , 外教英语培训班 , 每天45分钟 , 随时纠正 , 学英语上TutorABC，外教英语培训班 , 外教英语培训班 , 每天45分';
+			return this.desState ? text : text.slice(0, 133) + '...'
+		},
+	}
 };
 </script>
 
@@ -151,6 +256,11 @@ export default {
 				color:rgba(136,136,136,1);
 				line-height:24px;
 				margin-top: 25px;
+				var {
+					color: #F79727;
+					cursor: pointer;
+					margin-top: 10px;
+				}
 			}
 			div {
 				background:rgba(245,246,247,1);
@@ -219,12 +329,12 @@ export default {
 				var {
 					font-size:14px;
 					color:rgba(153,153,153,1);
-					margin-top: 10px;
+					margin-top: 25px;
 					display: inline-block
 				}
 			}
 			.myteam {
-				margin: 15px 0 5px 0;
+				margin: 25px 0 5px 0;
 				overflow: hidden;
 				cursor: pointer;
 				span {
@@ -277,6 +387,59 @@ export default {
 					.li3 {
 						text-indent: 25px;
 						background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1MTZERDA0MTUwNzMxMUU5QTE3N0JENTI3MjcxOTNBQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1MTZERDA0MjUwNzMxMUU5QTE3N0JENTI3MjcxOTNBQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjUxNkREMDNGNTA3MzExRTlBMTc3QkQ1MjcyNzE5M0FDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjUxNkREMDQwNTA3MzExRTlBMTc3QkQ1MjcyNzE5M0FDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+l1GyIgAAARlJREFUeNqUUrGORFAURTYaH6AQySYKzSYShUZEswqJxu/xC6LRScTQUZEoVUp0QhDs3mFizW52xpzi5d7zzsk994HGcZym6bIsyDNgGMZxHGIYxjAMXycAMtM0MahwHEdOAGQQ5G3vi6IIwxAKWZZpmv432F4FQfC5AopHmxwbiPfruu/7tm2P/E8kSZI8z4M7iARtXddRFFVVBdGnaWJZluf5O8P7im1OkiRZlgmCoKoqvCYMAcayrJsBdgd2s3Vd5/s+MLquEwSxkVCIokhRlOu6V53jOGVZzvOc57lt2yRJapq2q48RbhMYhrlcLk3TgFRRFDgfvNLV8LECOQcMRdFxHM9IQQaroq/+fOjfj/XEhryIbwEGAEkdrqAf7cZyAAAAAElFTkSuQmCC) top left no-repeat;
+					}
+				}
+				.tasksall {
+					text-align: center;
+					color: #F79727;
+					margin-top: 10px;
+					i {
+						transform:rotate(90deg);
+						display: inline-block;
+						margin: 3px 0 0 5px;
+						vertical-align: middle;
+					}
+				}
+			}
+
+			.nowork {
+				height: 250px;
+				position: relative;
+				h4 {color: #333}
+				.icon_no {
+					position: absolute;
+					left: 0;
+					top: 0;
+					width: 100%;
+					height: 100%;
+					background: rgba(255, 255, 255, .8);
+					border-radius: 5px;
+					div {
+						width: 75px;
+						margin: 100px auto 0;
+					}
+					i {
+						height: 46px;
+						width: 46px;
+						border: #ccc 3px solid;
+						border-radius: 100%;
+						display: inline-block;
+						position: relative;
+						&:before{
+							content: '';
+							position: absolute;
+							top: 52%;
+							background: #ccc;
+							width: 105%;
+							height: 3px;
+							transform:rotate(-30deg);
+						}
+					}
+					span {
+						color: #ccc;
+						font-weight: bold;
+						display: block;
+						margin: 10px 0 0 -10px;
 					}
 				}
 			}

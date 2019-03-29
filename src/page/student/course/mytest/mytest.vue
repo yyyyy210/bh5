@@ -27,6 +27,7 @@
           style="width: 100%"
           @row-click="cellEnter"
           :default-sort = "{prop: 'date', order: 'descending'}"
+          row-class-name="tableRow"
           >
           <el-table-column
             label="课时名称"
@@ -35,7 +36,7 @@
             width="180">
             <template slot-scope="scope">
               <span style="margin-left: 10px">{{ scope.row.address }}</span>
-              <!-- <p class="look">查看明细 ></p> -->
+              <p class="look">查看明细 ></p>
             </template>
           </el-table-column>
           <el-table-column

@@ -33,7 +33,8 @@ import {
   BreadcrumbItem,
   Row,
   Col,
-  Input
+  Input,
+  Dialog
 } from 'element-ui'
 
 import waterfall from 'vue-waterfall2'
@@ -58,6 +59,7 @@ Vue.use(Button)
   .use(BreadcrumbItem)
   .use(Row)
   .use(Col)
+  .use(Dialog)
   .use(Input);
 /* eslint-disable no-new */
 new Vue({
