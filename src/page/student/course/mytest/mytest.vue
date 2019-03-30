@@ -68,6 +68,7 @@
       <aside>
         <h3>测试完成率</h3>
         <el-progress type="circle" :stroke-width="8" :width="120" color="#26BF73" :percentage="pro1" status="text"><p class="num">{{pro1}}%</p><p class="font">我的完成率</p></el-progress>
+        <div class="vs"><img :src="vs" /></div>
         <el-progress type="circle" :stroke-width="8" :width="120" color="#FF9C19" :percentage="pro2" status="text"><p class="num">{{pro2}}%</p><p class="font">班级平均</p></el-progress>
         <el-progress type="circle" :stroke-width="8" :width="120" color="#FF9C19" :percentage="pro3" status="text"><p class="num">{{pro3}}%</p><p class="font">年级平均</p></el-progress>
       </aside>
@@ -76,11 +77,13 @@
 </template>
 
 <script>
+import vs from 'assets/images/vs.png'
 export default {
   name: 'Mytest',
   data () {
     return {
       loading: true,
+      vs,
       pro1: 0,
       pro2: 0,
       pro3: 0,
@@ -145,6 +148,9 @@ export default {
   background-color: #fff;
   border-radius: 6px;
   padding: 0 20px;
+  .vs {
+    img {width: auto}
+  }
   &>section {
     display: flex;
     height: 70px;

@@ -34,7 +34,12 @@ import {
   Row,
   Col,
   Input,
-  Dialog
+  Dialog,
+  Tooltip,
+  Form,
+  FormItem,
+  DatePicker,
+  Upload
 } from 'element-ui'
 
 import waterfall from 'vue-waterfall2'
@@ -60,6 +65,11 @@ Vue.use(Button)
   .use(Row)
   .use(Col)
   .use(Dialog)
+  .use(Tooltip)
+  .use(Form)
+  .use(FormItem)
+  .use(DatePicker)
+  .use(Upload)
   .use(Input);
 /* eslint-disable no-new */
 new Vue({

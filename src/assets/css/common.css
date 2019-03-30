@@ -40,3 +40,16 @@
 .mytest .el-table .tableRow:hover td {
   background-color: initial !important;
 }
+
+.upload .el-upload {width: 100%}
+.upload .el-upload-list{
+  background:rgba(245,246,248,1);
+  border:1px dotted rgba(228,228,228,1);
+  border-radius:2px;
+}
+.upload .el-upload-list li {
+ border: #F79727 1px solid;
+ width: 60px;
+ display: inline-block;
+ margin: 10px;
+}

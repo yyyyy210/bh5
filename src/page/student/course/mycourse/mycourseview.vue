@@ -56,7 +56,7 @@
 												<small>截止时间：2019.03.11</small>
 											</el-col>
 											<el-col :span="6">
-												<router-link to="/student/course/mycourse/material" tag="a" class="h">去完成 ></router-link>
+												<router-link to="/tasks" tag="a" class="h">去完成 ></router-link>
 											</el-col>
 										</el-row>
 									</li>
@@ -69,7 +69,7 @@
 												<small>截止时间：2019.03.11</small>
 											</el-col>
 											<el-col :span="6">
-												<router-link to="/student/course/mycourse/material" tag="a" class="h">去完成 ></router-link>
+												<router-link to="/tasks" tag="a" class="h">去完成 ></router-link>
 											</el-col>
 										</el-row>
 									</li>
@@ -145,7 +145,7 @@
 												<small>截止时间：2019.03.11</small>
 											</el-col>
 											<el-col :span="6">
-												<router-link to="/student/course/mycourse/material" tag="a" class="h">去完成 ></router-link>
+												<router-link to="/tasks" tag="a" class="h">去完成 ></router-link>
 											</el-col>
 										</el-row>
 									</li>
@@ -158,7 +158,7 @@
 												<small>截止时间：2019.03.11</small>
 											</el-col>
 											<el-col :span="6">
-												<router-link to="/student/course/mycourse/material" tag="a" class="h">去完成 ></router-link>
+												<router-link to="/tasks" tag="a" class="h">去完成 ></router-link>
 											</el-col>
 										</el-row>
 									</li>

@@ -18,6 +18,13 @@ let router = new Router({
       }
     },
     {
+      path: '/tasks',
+      name: 'tasks',
+      components: {
+        default: resolve => require(['@/page/tasks/index.vue'], resolve)
+      },
+    },
+    {
       path: '/student',
       name: 'Student',
       components: {
@@ -65,7 +72,7 @@ let router = new Router({
             {
               path: 'works',
               components: {
-                default: resolve => require(['@/page/student/course/works/works.vue'], resolve)
+                default: resolve => require(['@/page/student/course/works/index.vue'], resolve)
               }
             },            
           ]
