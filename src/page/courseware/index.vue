@@ -1,7 +1,7 @@
 <template>
-	<div class="tasks" v-loading="loading">
+	<div class="courseware" v-loading="loading">
 		<div class="taskleft">
-			<breadcrumb />
+			<div class="backclass" @click="goback">< 返回课程</div>
 			<div class="step">
 				<div class="stepimg" v-if="page === 1">
 					<img :src="material" />
@@ -12,67 +12,56 @@
 			</div>
 			<div class="stepbut">
 				<button class="pre" :class="{'active':page === 1}" @click="page = 1">上一页</button>
+				<span class="pages"><var>{{page}}</var>/2</span>
 				<button class="next" :class="{'active':page === 2}" @click="page = 2">下一页</button>
 			</div>
+			<div class="allprint" @click="screenF"><img :src="allprint" />{{fullShow ? '退出全屏' : '全屏' }}</div>
 		</div>
         <hgroup :class="{'active':isHidden}">
             <div><span>本课时任务</span><span @click="changeIsHidden"><img src="../../assets/images/icon/icon_task_close.png" alt=""></span></div>
-            <ul>
+            <ul class="task">
                 <li>
-                <h4 class="icon-course">课件任务名称</h4>
-                <div>
-                    <p>截止时间：2019.03.11</p>
-                    <p>发起人：张丹丹老师</p>
-                </div>
+                	<h4 class="icon-course">课件任务名称<span class="active">查看结果</span></h4>
                 </li>
                 <li>
-                <h4 class="icon-test">课件任务名称</h4>
-                <div>
-                    <p>截止时间：2019.03.11</p>
-                    <p>发起人：张丹丹老师</p>
-                </div>
+                	<h4 class="icon-test">课件任务名称</h4>
                 </li>
                 <li>
-                <h4 class="icon-questionnaire">课件任务名称</h4>
-                <div>
-                    <p>截止时间：2019.03.11</p>
-                    <p>发起人：张丹丹老师</p>
-                </div>
+                	<h4 class="icon-questionnaire">课件任务名称<span>查看结果</span></h4>
                 </li>
                 <li>
-                <h4 class="icon-works">课件任务名称</h4>
-                <div>
-                    <p>截止时间：2019.03.11</p>
-                    <p>发起人：张丹丹老师</p>
-                </div>
+                	<h4 class="icon-works">课件任务名称<span>查看结果</span></h4>
                 </li>
                 <li>
-                <h4 class="icon-clock">课件任务名称</h4>
-                <div>
-                    <p>截止时间：2019.03.11</p>
-                    <p>发起人：张丹丹老师</p>
-                </div>
+                	<h4 class="icon-clock">课件任务名称<span>查看结果</span></h4>
                 </li>
             </ul>
+			<ul class="operation">
+				<li class="edit"><span><i class="el-icon-check"></i>保存修改</span></li>
+				<li class="add"><span><i class="el-icon-plus"></i>添加任务</span></li>
+			</ul>
         </hgroup>
 	</div>
 </template>
 
 <script>
-import breadcrumb from '@/components/common/breadcrumb.vue'
+import screenfull from 'screenfull'
 import material from 'assets/images/student/material.png'
 import details1 from 'assets/images/details1.png'
+import allprint from 'assets/images/allprint.png'
 
 export default {
 	name: "tasks",
 	components: {
-		breadcrumb
+		
 	},
 	data() {
 		return {
             loading: true,
 			material,
 			details1,
+			allprint,
+			fullShow: false,
 			isHidden: true,
 			page: 1
 		};
@@ -85,20 +74,29 @@ export default {
 	},
 	methods: {
         changeIsHidden () {
-        this.isHidden = !this.isHidden
-        }
+        	this.isHidden = !this.isHidden
+		},
+		goback(){
+			this.screenF();
+			this.$router.go(-1)
+		},
+		screenF(){
+			this.fullShow = !this.fullShow;
+			screenfull.toggle()
+		}
     }
 };
 </script>
 
 <style lang="scss" scoped>
-.tasks {
+.courseware {
     background:rgba(255,255,255,1);
     border:1px solid rgba(228,232,237,1);
     border-radius:6px;
 	padding: 5px 10px;
 	display: flex;
 	margin-top: 30px;
+	position: relative;
 	.taskleft{
 		flex: 1;
 	}
@@ -116,38 +114,59 @@ export default {
 			}
         }
     }
-        .stepbut {
-            margin: 40px 0;
-			text-align: center;
-            button {
-				margin: 0 20px;
-				cursor: pointer;
-                width:170px;
-				height:44px;
-				border-radius:4px;
-				font-size: 16px;
-				border:1px solid rgba(0,0,0,1);
-				background:linear-gradient(-90deg,rgba(255,183,38,1),rgba(255,129,38,1));
-				border:none;
-				color: #fff;
-			}
-			.active {
-				background:transparent;
-				border: rgba(255,129,38,1) 1px solid;
-				color: #FF8126;
-			}
-        }
+	.stepbut {
+		margin: 40px 0 10px 0;
+		text-align: center;
+		button {
+			margin: 0 20px;
+			cursor: pointer;
+			width:170px;
+			height:44px;
+			border-radius:4px;
+			font-size: 16px;
+			border:1px solid rgba(0,0,0,1);
+			background:linear-gradient(-90deg,rgba(255,183,38,1),rgba(255,129,38,1));
+			border:none;
+			color: #fff;
+		}
+		.active {
+			background:transparent;
+			border: rgba(255,129,38,1) 1px solid;
+			color: #FF8126;
+		}
+		.pages {
+			font-size: 12px;
+			color: #666;
+			var {color: #F79727;}
+		}
+	}
+	.backclass {
+		color: #666666;
+		font-size: 16px;
+		line-height: 30px;
+		cursor: pointer;
+	}
+	.allprint {
+		color: #666;
+		font-size: 18px;
+		position: absolute;
+		right: 10px;
+		bottom: 20px;
+		cursor: pointer;
+		img {width: auto; margin-right: 10px;}
+	}
 }
-  hgroup{
+hgroup{
 	flex: 1;
-	max-width: 210px;
-    width: 210px;
+	max-width: 275px;
+    width: 275px;
     min-height: 700px;
     padding-bottom: 50px;
     float: right;
     border-left:1px solid rgba(228,232,237,1);
     transition: width .3s;
     background-color: #fff;
+	position: relative;
     &>div{
       padding: 0 20px;
       height: 70px;
@@ -250,5 +269,46 @@ export default {
         display: none;
       }
     }
-  }
+	.task {
+		span {
+			float: right;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			color: #ccc;
+			font-weight: normal;
+			text-indent: 0;
+			display: inline-block;
+			padding: 3px 10px;
+			font-size: 12px;
+			cursor: pointer;
+			&.active {
+				border:1px solid #F79727;
+				color:#F79727;
+			}
+		}
+	}
+	.operation {
+		position: absolute;
+		bottom: 20px;
+		left: 50px;
+		span {
+			border:2px solid rgba(187,187,187,1);
+			border-radius:22px;
+			color: #999;
+			font-size: 16px;
+			padding: 10px 20px;
+			display: inline-block;
+		}
+		i {margin-right: 10px}
+		.edit {
+			span {
+				border:2px solid rgba(247,151,39,1);
+				color: #F79727;
+			}
+		}
+		.add {
+
+		}
+	}
+}
 </style>

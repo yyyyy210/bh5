@@ -56,7 +56,7 @@
 												<small>截止时间：2019.03.11</small>
 											</el-col>
 											<el-col :span="6">
-												<router-link to="/tasks" tag="a" class="h">去完成 ></router-link>
+												<span>去完成 ></span>
 											</el-col>
 										</el-row>
 									</li>
@@ -69,7 +69,7 @@
 												<small>截止时间：2019.03.11</small>
 											</el-col>
 											<el-col :span="6">
-												<router-link to="/tasks" tag="a" class="h">去完成 ></router-link>
+												<span>去完成 ></span>
 											</el-col>
 										</el-row>
 									</li>
@@ -123,7 +123,7 @@
 							<h4>第{{index + 2}}课时：课时名称课时名称课时名称课时名称</h4>
 							<div class="workdes">
 								<span>课件名称课件名称课件名称课件名称01</span>
-								<var>查看课件 ></var>
+								<router-link to="/courseware" tag="var" >查看课件 ></router-link>
 							</div>
 							<div class="myteam">
 								<span class="i">我的小组</span>
@@ -145,7 +145,7 @@
 												<small>截止时间：2019.03.11</small>
 											</el-col>
 											<el-col :span="6">
-												<router-link to="/tasks" tag="a" class="h">去完成 ></router-link>
+												<span>去完成 ></span>
 											</el-col>
 										</el-row>
 									</li>
@@ -158,7 +158,7 @@
 												<small>截止时间：2019.03.11</small>
 											</el-col>
 											<el-col :span="6">
-												<router-link to="/tasks" tag="a" class="h">去完成 ></router-link>
+												<span>去完成 ></span>
 											</el-col>
 										</el-row>
 									</li>
@@ -286,6 +286,9 @@ export default {
 						top: 7px;
 					}
 				}
+			}
+			var {
+				cursor: pointer;
 			}
 		}
 

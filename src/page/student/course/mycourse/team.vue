@@ -1,12 +1,12 @@
 <template>
 	<div class="team" v-loading="loading">
-        <el-dialog :visible.sync="state" width="80%" :before-close="handleClose">
+        <el-dialog :visible.sync="state" width="70%" :before-close="handleClose">
 			<span slot="title" class="teamTitle">
 				<h3>我的小组</h3>
 			</span>
 			<div class="group">
-				<ul :style="{ width: data.length * 350 + 'px' }">
-					<li v-for="(item) in data">
+				<ul :style="{ width: (data.length - 3) * 350 + 'px' }">
+					<li v-for="(item, index) in data" v-if="index < 4">
 						<h4>09级2班 03组</h4>
 						<div class="teamMain">
 							<div class="teamBlock" v-for="(item) in data">
@@ -82,6 +82,7 @@ export default {
 	}
 	.group {
 		overflow-x: scroll;
+		overflow-y: hidden;
 		li {
 			border: #E4E8ED 1px solid;
 			width: 332px;

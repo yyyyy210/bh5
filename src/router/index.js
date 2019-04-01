@@ -18,10 +18,10 @@ let router = new Router({
       }
     },
     {
-      path: '/tasks',
-      name: 'tasks',
+      path: '/courseware',
+      name: 'courseware',
       components: {
-        default: resolve => require(['@/page/tasks/index.vue'], resolve)
+        default: resolve => require(['@/page/courseware/index.vue'], resolve)
       },
     },
     {

@@ -7,9 +7,9 @@
         <div class="user">余周周<span><img src="../../assets/images/icon/icon_sex_nv.png" alt=""></span></div>
         <p>高中三年级</p>
         <div class="nav active"><span><img src="../../assets/images/icon/icon_course.png" alt=""></span><span>课程中心</span></div>
-        <router-link to="/tasks" tag="div" class="nav">
+        <div class="nav">
           <span><img src="../../assets/images/icon/icon_task.png" alt=""></span><span>任务中心</span>
-        </router-link>
+        </div>
       </aside>
       <section class="content">
         <router-view></router-view>

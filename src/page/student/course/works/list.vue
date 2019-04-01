@@ -51,10 +51,10 @@
               <img :src="item.img" />
               <div class="but">
                 <el-tooltip effect="dark" content="删除" placement="top">
-                  <i><img :src="icon_39" /></i>
+                  <i><img :src="icon_40" /></i>
                 </el-tooltip>
                 <el-tooltip effect="dark" content="下载" placement="top">
-                  <i><img :src="icon_40" /></i>
+                  <i @click="changedetails"><img :src="icon_39" /></i>
                 </el-tooltip>
                 <el-tooltip effect="dark" content="添加" placement="top">
                   <i><img :src="icon_42" /></i>
@@ -119,7 +119,7 @@ export default{
       uploadShow: false,
       data: [],
       loading: true,
-      col: 5,
+      col: 3,
       value: '',
       options: [{
         value: '选项1',
