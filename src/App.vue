@@ -15,7 +15,5 @@ export default {
   font-family: 'microsoft yahei', 'PingFangSC-Regular','Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  width: 1349px;
-  margin: 0 auto;
 }
 </style>

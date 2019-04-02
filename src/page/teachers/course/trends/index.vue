@@ -1,5 +1,5 @@
 <template>
-  <div class="trends"  v-loading="loading">
+  <div class="trends">
     <section>
       <h2>班级动态</h2>
       <p>待定</p>

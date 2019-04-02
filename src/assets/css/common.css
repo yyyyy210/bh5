@@ -6,6 +6,8 @@
 }
 .el-select .el-input__inner:focus{
   border-color: #F28C18;
+  color: #F28C18;
+  background:rgba(255,247,237,1);
 }
 .el-select-dropdown__item.selected{
   color: #F28C18;

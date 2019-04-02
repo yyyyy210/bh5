@@ -17,8 +17,8 @@
 			</div>
 			<div class="allprint" @click="screenF"><img :src="allprint" />{{fullShow ? '退出全屏' : '全屏' }}</div>
 		</div>
-        <hgroup :class="{'active':isHidden}">
-            <div><span>本课时任务</span><span @click="changeIsHidden"><img src="../../assets/images/icon/icon_task_close.png" alt=""></span></div>
+        <hgroup>
+            <div><span>本课时任务</span><span><img src="../../assets/images/icon/icon_task_close.png" alt=""></span></div>
             <ul class="task">
                 <li>
                 	<h4 class="icon-course">课件任务名称<span class="active">查看结果</span></h4>
@@ -62,7 +62,6 @@ export default {
 			details1,
 			allprint,
 			fullShow: false,
-			isHidden: true,
 			page: 1
 		};
 	},
@@ -73,11 +72,8 @@ export default {
 		}, 1000);
 	},
 	methods: {
-        changeIsHidden () {
-        	this.isHidden = !this.isHidden
-		},
 		goback(){
-			this.screenF();
+			screenfull.exit()
 			this.$router.go(-1)
 		},
 		screenF(){
@@ -95,9 +91,10 @@ export default {
     border-radius:6px;
 	padding: 5px 10px;
 	display: flex;
-	margin-top: 30px;
+	height: 100vh;
 	position: relative;
 	.taskleft{
+		position: relative;
 		flex: 1;
 	}
     .step {
@@ -105,6 +102,7 @@ export default {
         border:1px solid rgba(228,232,237,1);
         border-radius:6px;
         margin: 15px;
+		height: 94%;
         .stepimg {
 			// width: 992px;
 			text-align: center;
@@ -115,7 +113,12 @@ export default {
         }
     }
 	.stepbut {
-		margin: 40px 0 10px 0;
+		position: absolute;
+		bottom: 30px;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		width: 50%;
 		text-align: center;
 		button {
 			margin: 0 20px;
@@ -150,8 +153,9 @@ export default {
 		color: #666;
 		font-size: 18px;
 		position: absolute;
-		right: 10px;
-		bottom: 20px;
+		right: 30px;
+		bottom: 30px;
+		z-index: 10;
 		cursor: pointer;
 		img {width: auto; margin-right: 10px;}
 	}

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="g_main">
     <BHeader></BHeader>
     <section class="main">
       <aside>
@@ -27,6 +27,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.g_main {
+  width: 1349px;
+  margin: 0 auto;
+}
 .main {
   display: flex;
   & > aside {

@@ -11,28 +11,28 @@
           </div>
         </li>
         <li>
-          <h4 class="icon-test">课件任务名称</h4>
+          <h4 class="icon-test">测试任务名称</h4>
           <div>
             <p>截止时间：2019.03.11</p>
             <p>发起人：张丹丹老师</p>
           </div>
         </li>
         <li>
-          <h4 class="icon-questionnaire">课件任务名称</h4>
+          <h4 class="icon-questionnaire">问卷任务名称</h4>
           <div>
             <p>截止时间：2019.03.11</p>
             <p>发起人：张丹丹老师</p>
           </div>
         </li>
         <li>
-          <h4 class="icon-works">课件任务名称</h4>
+          <h4 class="icon-works">作品上传</h4>
           <div>
             <p>截止时间：2019.03.11</p>
             <p>发起人：张丹丹老师</p>
           </div>
         </li>
         <li>
-          <h4 class="icon-clock">课件任务名称</h4>
+          <h4 class="icon-clock">优势打卡任务名称</h4>
           <div>
             <p>截止时间：2019.03.11</p>
             <p>发起人：张丹丹老师</p>
@@ -161,20 +161,29 @@ export default {
           display: block;
           width: 100px;
           height: 32px;
+          font-weight: bold;
           line-height: 32px;
           text-align: center;
           border-radius: 16px;
           margin-top: 19px;
           color: #666;
           cursor: pointer;
+          position: relative;
           &:hover{
-            background-color: #fcf4eb;
+           color: #333;
           }
-          &.active{
-            background-color: #F79727;
-            color: #fff;
-            &:hover{
-              background-color: #F79727;
+          &.active {
+            color: #333;
+            &:before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                width:20px;
+                height:4px;
+                margin-left: -10px;
+                background:linear-gradient(-90deg,rgba(255,183,38,1),rgba(255,129,38,1));
+                border-radius:2px;
             }
           }
         }
@@ -276,22 +285,22 @@ export default {
         background-position: 0 0;
         background-repeat: no-repeat;
         &.icon-course{
-          background-image: url('../../../../assets/images/icon/icon_course_name.png');
+          background-image: url('../../../../assets/images/icon/s8.png');
         }
         &.icon-test{
-          background-image: url('../../../../assets/images/icon/icon_course_content.png');
+          background-image: url('../../../../assets/images/icon/s5.png');
         }
         &.icon-questionnaire{
           background-size: 14px 16px;
-          background-image: url('../../../../assets/images/icon/icon_course_look.png');
+          background-image: url('../../../../assets/images/icon/s6.png');
         }
         &.icon-works{
           background-size: 16px 14px;
           background-position: 1px 0;
-          background-image: url('../../../../assets/images/icon/icon_course_completed.png');
+          background-image: url('../../../../assets/images/icon/s7.png');
         }
         &.icon-clock{
-          background-image: url('../../../../assets/images/icon/icon_clock.png');
+          background-image: url('../../../../assets/images/icon/s9.png');
         }
       }
       div{
