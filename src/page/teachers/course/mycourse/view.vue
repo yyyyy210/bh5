@@ -15,7 +15,7 @@
 							<el-col :span="18">
 								<div class="workdes">
 									<h3>外教1对11英语课程 口语轻松说</h3>
-									<span class="previewstudents">预览学生效果</span>
+									<span @click="changeClass('classpreview')" class="previewstudents">预览学生效果</span>
 									<p>
 										{{fitlerdes()}}
 										<var v-if="!desState" @click="()=>{this.desState = true}">查看详情</var>
@@ -124,13 +124,13 @@
 							<h4>第{{index + 2}}课时：课时名称课时名称课时名称课时名称<i></i></h4>
 							<div class="workdes">
 								<span>课件名称课件名称课件名称课件名称01</span>
-								<router-link to="#" tag="var" >开放课件 ></router-link>
-								<router-link to="#" tag="var" style="margin-left: 20px;" >编辑课件 ></router-link>
+								<var @click="changeClass('classopen')">开放课件 ></var>
+								<var @click="changeClass('classedit')" style="margin-left: 20px;" >编辑课件 ></var>
 							</div>
 							<div class="myteam">
-								<span class="i">小组分配</span>
+								<span @click="changeClass('team')" class="i">小组分配</span>
 								<router-link to="/courseware" class="classstart" tag="span" >开始上课</router-link>
-								<span class="classdata">备课资料</span>
+								<span @click="changeClass('classdata')" class="classdata">备课资料</span>
 							</div>
 						</div>
 					</el-col>
@@ -186,11 +186,22 @@
 				</el-row>
 			</div>
 		</div>
+
+		<classopen :state="modelShow === 'classopen'" v-on:close="changeClass" />
+		<classedit :state="modelShow === 'classedit'" v-on:close="changeClass" />
+		<classdata :state="modelShow === 'classdata'" v-on:close="changeClass" />
+		<classpreview :state="modelShow === 'classpreview'" v-on:close="changeClass" />
+		<team :state="modelShow === 'team'" v-on:close="changeClass" />
 	</div>
 </template>
 
 <script>
 import breadcrumb from '@/components/common/breadcrumb.vue'
+import classopen from './classopen.vue'
+import classedit from './classedit.vue'
+import classdata from './classdata.vue'
+import classpreview from './classpreview.vue'
+import team from './team.vue'
 import breadcrumb_address from 'assets/images/student/breadcrumb_address.png'
 import workimg from 'assets/images/student/workimg.png'
 
@@ -198,11 +209,16 @@ export default {
 	name: "MyCourseView",
 	components: {
 		breadcrumb,
+		classopen,
+		classedit,
+		classdata,
+		team
 	},
 	data() {
 		return {
 			loading: true,
 			workimg,
+			modelShow: null,
 			data: [1,2,3,4,5,6,7],
 			desState: false
 		};
@@ -214,7 +230,9 @@ export default {
 		}, 1000);
 	},
 	methods: {
-
+		changeClass(type){
+			this.modelShow = type || null;
+		},
 		fitlerdes(){
 			let text = '外教英语培训班 , 外教英语培训班 , 每天45分钟 , 随时纠正 , 学英语上TutorABC , 随时随地对话全球外教 , 生活,职场，外教英语培训班 , 外教英语培训班 , 每天45分钟 , 随时纠正 , 学英语上TutorABC，外教英语培训班 , 外教英语培训班 , 每天45分';
 			return this.desState ? text : text.slice(0, 133) + '...'
@@ -294,6 +312,7 @@ export default {
 				top: 15px;
 				color: #F79727;
 				font-size: 16px;
+				cursor: pointer;
 				&:after {
 					display:block;
 					content:'';

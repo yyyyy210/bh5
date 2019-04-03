@@ -40,6 +40,7 @@ import {
   FormItem,
   DatePicker,
   Upload,
+  Icon,
   Badge
 } from 'element-ui'
 
@@ -72,6 +73,7 @@ Vue.use(Button)
   .use(DatePicker)
   .use(Upload)
   .use(Badge)
+  .use(Icon)
   .use(Input);
 /* eslint-disable no-new */
 new Vue({
